@@ -131,6 +131,8 @@ struct RSVPPlayerView: View {
                 pageCount: book.pageCount
             )
             hasLoaded = true
+        } catch is CancellationError {
+            return
         } catch {
             loadError = error.localizedDescription
         }
