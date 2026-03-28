@@ -9,13 +9,18 @@ struct ChapterPickerView: View {
 
     @Environment(\.dismiss) private var dismiss
 
+    private var wordsPerPage: Int {
+        guard pageCount > 0 && totalWords > 0 else { return 1 }
+        return max(1, totalWords / pageCount)
+    }
+
     var body: some View {
         NavigationStack {
             List {
                 if chapters.isEmpty {
                     Section("Pages") {
                         ForEach(0..<pageCount, id: \.self) { page in
-                            let wordIndex = page * (totalWords / max(pageCount, 1))
+                            let wordIndex = page * wordsPerPage
                             Button {
                                 onSelect(wordIndex)
                             } label: {
@@ -64,7 +69,6 @@ struct ChapterPickerView: View {
     }
 
     private func isCurrentPage(_ page: Int) -> Bool {
-        let wordsPerPage = totalWords / max(pageCount, 1)
         let pageStart = page * wordsPerPage
         let pageEnd = (page + 1) * wordsPerPage
         return currentIndex >= pageStart && currentIndex < pageEnd

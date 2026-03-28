@@ -58,6 +58,10 @@ struct ImportService {
         let pdfURL = FileManager.default.bookPDFURL(fileName: fileName)
         let result = try await PDFParserService.parse(pdfURL: pdfURL)
         try result.text.write(to: cacheURL, atomically: true, encoding: .utf8)
+        let chaptersURL = FileManager.default.bookChaptersCacheURL(fileName: fileName)
+        if let chaptersData = try? JSONEncoder().encode(result.chapters) {
+            try? chaptersData.write(to: chaptersURL)
+        }
         return result.text
     }
 

@@ -24,7 +24,7 @@ struct RSVPPlayerView: View {
                     .padding(.horizontal)
 
                 Button {
-                    if !engine.isPlaying {
+                    if !engine.isPlaying && hasLoaded {
                         showChapterPicker = true
                     }
                 } label: {

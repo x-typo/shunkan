@@ -45,12 +45,12 @@ struct PDFParserService {
         for i in 0..<document.pageCount {
             pageWordOffsets.append(runningWordCount)
             if let page = document.page(at: i), let text = page.string {
+                if !pages.isEmpty {
+                    runningWordCount += 1
+                }
                 pages.append(text)
                 let tokens = Tokenizer.tokenize(text)
                 runningWordCount += tokens.count
-            }
-            if i < document.pageCount - 1 {
-                runningWordCount += 1
             }
         }
         return (pages.joined(separator: "\n\n"), pageWordOffsets, runningWordCount)
@@ -75,6 +75,7 @@ struct PDFParserService {
             if let destination = child.destination,
                let page = destination.page,
                let pageIndex = document.index(for: page) as Int?,
+               pageIndex >= 0,
                pageIndex < pageWordOffsets.count,
                let label = child.label, !label.isEmpty {
                 chapters.append(Chapter(title: label, wordIndex: pageWordOffsets[pageIndex]))
