@@ -8,6 +8,13 @@ struct PDFParserService {
         let totalWords: Int
         let pageCount: Int
         let thumbnailData: Data?
+        let chapters: [Chapter]
+        let pageWordOffsets: [Int]
+    }
+
+    struct Chapter: Codable {
+        let title: String
+        let wordIndex: Int
     }
 
     static func parse(pdfURL: URL) async throws -> ParseResult {
@@ -15,27 +22,66 @@ struct PDFParserService {
             throw PDFParseError.cannotOpenDocument
         }
 
-        let text = extractText(from: document)
-        let totalWords = Tokenizer.tokenize(text).count
+        let (text, pageWordOffsets, totalWords) = extractTextWithOffsets(from: document)
         let pageCount = document.pageCount
         let thumbnailData = generateThumbnail(from: document)
+        let chapters = extractChapters(from: document, pageWordOffsets: pageWordOffsets)
 
         return ParseResult(
             text: text,
             totalWords: totalWords,
             pageCount: pageCount,
-            thumbnailData: thumbnailData
+            thumbnailData: thumbnailData,
+            chapters: chapters,
+            pageWordOffsets: pageWordOffsets
         )
     }
 
-    private static func extractText(from document: PDFDocument) -> String {
+    private static func extractTextWithOffsets(from document: PDFDocument) -> (text: String, pageWordOffsets: [Int], totalWords: Int) {
         var pages: [String] = []
+        var pageWordOffsets: [Int] = []
+        var runningWordCount = 0
+
         for i in 0..<document.pageCount {
+            pageWordOffsets.append(runningWordCount)
             if let page = document.page(at: i), let text = page.string {
+                if !pages.isEmpty {
+                    runningWordCount += 1
+                }
                 pages.append(text)
+                let tokens = Tokenizer.tokenize(text)
+                runningWordCount += tokens.count
             }
         }
-        return pages.joined(separator: "\n\n")
+        return (pages.joined(separator: "\n\n"), pageWordOffsets, runningWordCount)
+    }
+
+    private static func extractChapters(from document: PDFDocument, pageWordOffsets: [Int]) -> [Chapter] {
+        guard let outline = document.outlineRoot else { return [] }
+
+        var chapters: [Chapter] = []
+        collectOutlineItems(outline, into: &chapters, document: document, pageWordOffsets: pageWordOffsets)
+        return chapters
+    }
+
+    private static func collectOutlineItems(
+        _ item: PDFOutline,
+        into chapters: inout [Chapter],
+        document: PDFDocument,
+        pageWordOffsets: [Int]
+    ) {
+        for i in 0..<item.numberOfChildren {
+            guard let child = item.child(at: i) else { continue }
+            if let destination = child.destination,
+               let page = destination.page,
+               let pageIndex = document.index(for: page) as Int?,
+               pageIndex >= 0,
+               pageIndex < pageWordOffsets.count,
+               let label = child.label, !label.isEmpty {
+                chapters.append(Chapter(title: label, wordIndex: pageWordOffsets[pageIndex]))
+            }
+            collectOutlineItems(child, into: &chapters, document: document, pageWordOffsets: pageWordOffsets)
+        }
     }
 
     private static func generateThumbnail(from document: PDFDocument) -> Data? {

@@ -80,6 +80,10 @@ final class RSVPEngine {
         currentIndex = max(target, 0)
     }
 
+    func jumpTo(wordIndex: Int) {
+        currentIndex = max(0, min(wordIndex, words.count - 1))
+    }
+
     private func delay(for word: String) -> Int {
         let baseDelay = 60_000 / wordsPerMinute
 
@@ -112,8 +116,7 @@ final class RSVPEngine {
 
     var currentPageEstimate: Int {
         guard pageCount > 0 && !words.isEmpty else { return 0 }
-        let wordsPerPage = words.count / pageCount
-        guard wordsPerPage > 0 else { return 1 }
+        let wordsPerPage = max(1, words.count / pageCount)
         return min((currentIndex / wordsPerPage) + 1, pageCount)
     }
 }

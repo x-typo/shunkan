@@ -19,6 +19,11 @@ struct ImportService {
 
         try result.text.write(to: cacheURL, atomically: true, encoding: .utf8)
 
+        let chaptersURL = FileManager.default.bookChaptersCacheURL(fileName: fileName)
+        if let chaptersData = try? JSONEncoder().encode(result.chapters) {
+            try? chaptersData.write(to: chaptersURL)
+        }
+
         let title = titleFromFileName(sourceURL.lastPathComponent)
         let book = Book(
             title: title,
@@ -37,8 +42,10 @@ struct ImportService {
     static func deleteBook(_ book: Book, context: ModelContext) throws {
         let pdfURL = FileManager.default.bookPDFURL(fileName: book.fileName)
         let cacheURL = FileManager.default.bookTextCacheURL(fileName: book.fileName)
+        let chaptersURL = FileManager.default.bookChaptersCacheURL(fileName: book.fileName)
         try? FileManager.default.removeItem(at: pdfURL)
         try? FileManager.default.removeItem(at: cacheURL)
+        try? FileManager.default.removeItem(at: chaptersURL)
         context.delete(book)
         try context.save()
     }
@@ -51,7 +58,19 @@ struct ImportService {
         let pdfURL = FileManager.default.bookPDFURL(fileName: fileName)
         let result = try await PDFParserService.parse(pdfURL: pdfURL)
         try result.text.write(to: cacheURL, atomically: true, encoding: .utf8)
+        let chaptersURL = FileManager.default.bookChaptersCacheURL(fileName: fileName)
+        if let chaptersData = try? JSONEncoder().encode(result.chapters) {
+            try? chaptersData.write(to: chaptersURL)
+        }
         return result.text
+    }
+
+    static func loadChapters(fileName: String) -> [PDFParserService.Chapter] {
+        let chaptersURL = FileManager.default.bookChaptersCacheURL(fileName: fileName)
+        guard let data = try? Data(contentsOf: chaptersURL),
+              let chapters = try? JSONDecoder().decode([PDFParserService.Chapter].self, from: data)
+        else { return [] }
+        return chapters
     }
 
     private static func uniqueFileName(for original: String) -> String {

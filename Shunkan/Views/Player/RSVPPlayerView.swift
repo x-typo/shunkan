@@ -7,19 +7,15 @@ struct RSVPPlayerView: View {
     @State private var engine = RSVPEngine()
     @State private var hasLoaded = false
     @State private var loadError: String?
+    @State private var chapters: [PDFParserService.Chapter] = []
+    @State private var showChapterPicker = false
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
-                .onTapGesture {
-                    if engine.isPlaying {
-                        engine.pause()
-                    } else if hasLoaded {
-                        engine.play()
-                    }
-                }
+                .onTapGesture { togglePlayback() }
 
             VStack {
                 ProgressView(value: engine.progress)
@@ -27,9 +23,21 @@ struct RSVPPlayerView: View {
                     .scaleEffect(y: 0.5)
                     .padding(.horizontal)
 
-                Text("Page \(engine.currentPageEstimate) of \(engine.pageCount)")
+                Button {
+                    if !engine.isPlaying && hasLoaded {
+                        showChapterPicker = true
+                    }
+                } label: {
+                    HStack(spacing: 4) {
+                        Text("Page \(engine.currentPageEstimate) of \(engine.pageCount)")
+                        if !engine.isPlaying && hasLoaded {
+                            Image(systemName: "chevron.down")
+                                .font(.caption2)
+                        }
+                    }
                     .font(.caption2)
                     .foregroundStyle(.secondary)
+                }
 
                 Spacer()
 
@@ -60,19 +68,17 @@ struct RSVPPlayerView: View {
                 Spacer()
 
                 HStack(spacing: 32) {
-                    Button { engine.skipBackward() } label: {
-                        Image(systemName: "backward.fill")
-                            .font(.title3)
-                            .foregroundStyle(.secondary)
+                    Button {
+                        engine.wordsPerMinute = max(100, engine.wordsPerMinute - 10)
+                    } label: {
+                        Image(systemName: "minus")
+                            .font(.title2)
+                            .foregroundStyle(.blue)
+                            .frame(width: 44, height: 44)
+                            .contentShape(Rectangle())
                     }
 
-                    Button {
-                        if engine.isPlaying {
-                            engine.pause()
-                        } else {
-                            engine.play()
-                        }
-                    } label: {
+                    Button { togglePlayback() } label: {
                         Image(systemName: engine.isPlaying ? "pause.fill" : "play.fill")
                             .font(.title)
                             .foregroundStyle(.blue)
@@ -80,10 +86,14 @@ struct RSVPPlayerView: View {
                             .overlay(Circle().stroke(.blue, lineWidth: 2))
                     }
 
-                    Button { engine.skipForward() } label: {
-                        Image(systemName: "forward.fill")
-                            .font(.title3)
-                            .foregroundStyle(.secondary)
+                    Button {
+                        engine.wordsPerMinute = min(900, engine.wordsPerMinute + 10)
+                    } label: {
+                        Image(systemName: "plus")
+                            .font(.title2)
+                            .foregroundStyle(.blue)
+                            .frame(width: 44, height: 44)
+                            .contentShape(Rectangle())
                     }
                 }
 
@@ -107,6 +117,18 @@ struct RSVPPlayerView: View {
                 }
             }
         }
+        .sheet(isPresented: $showChapterPicker) {
+            ChapterPickerView(
+                chapters: chapters,
+                pageCount: engine.pageCount,
+                currentIndex: engine.currentIndex,
+                totalWords: engine.words.count
+            ) { wordIndex in
+                engine.jumpTo(wordIndex: wordIndex)
+                showChapterPicker = false
+            }
+            .presentationDetents([.medium, .large])
+        }
         .task {
             await loadBook()
         }
@@ -122,6 +144,14 @@ struct RSVPPlayerView: View {
         }
     }
 
+    private func togglePlayback() {
+        if engine.isPlaying {
+            engine.pause()
+        } else if hasLoaded {
+            engine.play()
+        }
+    }
+
     private func loadBook() async {
         do {
             let text = try await ImportService.loadText(fileName: book.fileName)
@@ -130,6 +160,7 @@ struct RSVPPlayerView: View {
                 startIndex: book.currentWordIndex,
                 pageCount: book.pageCount
             )
+            chapters = ImportService.loadChapters(fileName: book.fileName)
             hasLoaded = true
         } catch is CancellationError {
             return
