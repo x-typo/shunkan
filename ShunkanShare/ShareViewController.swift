@@ -43,7 +43,15 @@ class ShareViewController: UIViewController {
         let inbox = containerURL.appendingPathComponent("Inbox", isDirectory: true)
         try? FileManager.default.createDirectory(at: inbox, withIntermediateDirectories: true)
 
-        let dest = inbox.appendingPathComponent(url.lastPathComponent)
+        var dest = inbox.appendingPathComponent(url.lastPathComponent)
+        if FileManager.default.fileExists(atPath: dest.path) {
+            let base = url.deletingPathExtension().lastPathComponent
+            let ext = url.pathExtension
+            let suffix = "\(base)-\(UUID().uuidString.prefix(8))"
+            dest = ext.isEmpty
+                ? inbox.appendingPathComponent(suffix)
+                : inbox.appendingPathComponent("\(suffix).\(ext)")
+        }
         try? FileManager.default.copyItem(at: url, to: dest)
     }
 

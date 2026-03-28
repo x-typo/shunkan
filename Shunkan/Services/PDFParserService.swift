@@ -16,7 +16,7 @@ struct PDFParserService {
         }
 
         let text = extractText(from: document)
-        let totalWords = Tokenizer.wordCount(text)
+        let totalWords = Tokenizer.tokenize(text).count
         let pageCount = document.pageCount
         let thumbnailData = generateThumbnail(from: document)
 

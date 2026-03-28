@@ -18,7 +18,4 @@ enum Tokenizer {
         return tokens
     }
 
-    static func wordCount(_ text: String) -> Int {
-        tokenize(text).filter { $0 != paragraphSentinel }.count
-    }
 }

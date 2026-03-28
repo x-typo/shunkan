@@ -3,8 +3,10 @@ import SwiftData
 
 struct RSVPPlayerView: View {
     @Bindable var book: Book
+    @Environment(\.modelContext) private var modelContext
     @State private var engine = RSVPEngine()
     @State private var hasLoaded = false
+    @State private var loadError: String?
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.dismiss) private var dismiss
 
@@ -31,10 +33,23 @@ struct RSVPPlayerView: View {
 
                 Spacer()
 
-                WordDisplayView(
-                    word: engine.currentWord,
-                    dimmed: !engine.isPlaying
-                )
+                if let error = loadError {
+                    VStack(spacing: 8) {
+                        Image(systemName: "exclamationmark.triangle")
+                            .font(.largeTitle)
+                            .foregroundStyle(.secondary)
+                        Text(error)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
+                    }
+                    .padding()
+                } else {
+                    WordDisplayView(
+                        word: engine.currentWord,
+                        dimmed: !engine.isPlaying
+                    )
+                }
 
                 if !engine.isPlaying && hasLoaded {
                     WPMSliderView(wpm: $engine.wordsPerMinute)
@@ -109,20 +124,23 @@ struct RSVPPlayerView: View {
 
     private func loadBook() async {
         do {
-            let text = try await ImportService.loadText(for: book)
+            let text = try await ImportService.loadText(fileName: book.fileName)
             engine.load(
                 text: text,
                 startIndex: book.currentWordIndex,
                 pageCount: book.pageCount
             )
             hasLoaded = true
+        } catch is CancellationError {
+            return
         } catch {
-            print("Failed to load book: \(error)")
+            loadError = error.localizedDescription
         }
     }
 
     private func saveProgress() {
         book.currentWordIndex = engine.currentIndex
         book.lastReadDate = .now
+        try? modelContext.save()
     }
 }

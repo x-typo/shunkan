@@ -1,6 +1,7 @@
 import Foundation
 import Observation
 
+@MainActor
 @Observable
 final class RSVPEngine {
     private(set) var words: [String] = []
@@ -40,25 +41,26 @@ final class RSVPEngine {
 
     func load(text: String, startIndex: Int = 0, pageCount: Int = 0) {
         words = Tokenizer.tokenize(text)
-        currentIndex = min(startIndex, max(words.count - 1, 0))
+        currentIndex = min(startIndex, words.count)
         self.pageCount = pageCount
     }
 
     func play() {
         guard !words.isEmpty else { return }
+        playbackTask?.cancel()
         isPlaying = true
-        playbackTask = Task { @MainActor in
+        playbackTask = Task {
             while isPlaying && currentIndex < words.count {
                 let word = words[currentIndex]
-                let delay = self.delay(for: word)
-                try? await Task.sleep(for: .milliseconds(delay))
-                if isPlaying {
-                    currentIndex += 1
+                do {
+                    try await Task.sleep(for: .milliseconds(delay(for: word)))
+                } catch {
+                    return
                 }
+                guard isPlaying else { return }
+                currentIndex += 1
             }
-            if currentIndex >= words.count {
-                isPlaying = false
-            }
+            isPlaying = false
         }
     }
 
@@ -70,7 +72,7 @@ final class RSVPEngine {
 
     func skipForward() {
         let target = nextSentenceBoundary(from: currentIndex, forward: true)
-        currentIndex = min(target, words.count - 1)
+        currentIndex = min(target, words.count)
     }
 
     func skipBackward() {
@@ -101,11 +103,11 @@ final class RSVPEngine {
         while i >= 0 && i < words.count {
             let word = words[i]
             if word.last == "." || word.last == "?" || word.last == "!" {
-                return forward ? min(i + 1, words.count - 1) : i
+                return forward ? i + 1 : i
             }
             i += step
         }
-        return forward ? words.count - 1 : 0
+        return forward ? words.count : 0
     }
 
     var currentPageEstimate: Int {
