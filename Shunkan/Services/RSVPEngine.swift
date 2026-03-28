@@ -80,6 +80,10 @@ final class RSVPEngine {
         currentIndex = max(target, 0)
     }
 
+    func jumpTo(wordIndex: Int) {
+        currentIndex = max(0, min(wordIndex, words.count - 1))
+    }
+
     private func delay(for word: String) -> Int {
         let baseDelay = 60_000 / wordsPerMinute
 

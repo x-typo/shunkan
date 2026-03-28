@@ -19,6 +19,11 @@ extension FileManager {
         return booksDirectory.appendingPathComponent("\(base).txt")
     }
 
+    func bookChaptersCacheURL(fileName: String) -> URL {
+        let base = (fileName as NSString).deletingPathExtension
+        return booksDirectory.appendingPathComponent("\(base).chapters.json")
+    }
+
     var sharedInboxURL: URL? {
         containerURL(forSecurityApplicationGroupIdentifier: "group.xtypo.Shunkan")?
             .appendingPathComponent("Inbox", isDirectory: true)
