@@ -47,7 +47,10 @@ class ShareViewController: UIViewController {
         if FileManager.default.fileExists(atPath: dest.path) {
             let base = url.deletingPathExtension().lastPathComponent
             let ext = url.pathExtension
-            dest = inbox.appendingPathComponent("\(base)-\(UUID().uuidString.prefix(8)).\(ext)")
+            let suffix = "\(base)-\(UUID().uuidString.prefix(8))"
+            dest = ext.isEmpty
+                ? inbox.appendingPathComponent(suffix)
+                : inbox.appendingPathComponent("\(suffix).\(ext)")
         }
         try? FileManager.default.copyItem(at: url, to: dest)
     }

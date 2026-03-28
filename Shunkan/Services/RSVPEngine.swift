@@ -41,7 +41,7 @@ final class RSVPEngine {
 
     func load(text: String, startIndex: Int = 0, pageCount: Int = 0) {
         words = Tokenizer.tokenize(text)
-        currentIndex = min(startIndex, max(words.count - 1, 0))
+        currentIndex = min(startIndex, words.count)
         self.pageCount = pageCount
     }
 
