@@ -18,7 +18,7 @@ struct BookCard: View {
                 } else {
                     RoundedRectangle(cornerRadius: 8)
                         .fill(Color(
-                            hue: Double(abs(book.title.utf8.reduce(0) { ($0 &+ Int($1)) &* 31 }) % 360) / 360.0,
+                            hue: Double(book.title.utf8.reduce(0 as UInt) { ($0 &+ UInt($1)) &* 31 } % 360) / 360.0,
                             saturation: 0.3, brightness: 0.2))
                         .frame(height: 180)
                         .overlay {

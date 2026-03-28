@@ -43,12 +43,12 @@ struct ImportService {
         try context.save()
     }
 
-    static func loadText(for book: Book) async throws -> String {
-        let cacheURL = FileManager.default.bookTextCacheURL(fileName: book.fileName)
+    static func loadText(fileName: String) async throws -> String {
+        let cacheURL = FileManager.default.bookTextCacheURL(fileName: fileName)
         if FileManager.default.fileExists(atPath: cacheURL.path()) {
             return try String(contentsOf: cacheURL, encoding: .utf8)
         }
-        let pdfURL = FileManager.default.bookPDFURL(fileName: book.fileName)
+        let pdfURL = FileManager.default.bookPDFURL(fileName: fileName)
         let result = try await PDFParserService.parse(pdfURL: pdfURL)
         try result.text.write(to: cacheURL, atomically: true, encoding: .utf8)
         return result.text
