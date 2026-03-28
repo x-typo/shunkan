@@ -1,0 +1,752 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		58DE7D0C2F775AC600510F5C /* ShunkanShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 58DE7D022F775AC600510F5C /* ShunkanShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		58DE7CBC2F7758E800510F5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 58DE7CA42F7758E700510F5C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 58DE7CAB2F7758E700510F5C;
+			remoteInfo = Shunkan;
+		};
+		58DE7CC62F7758E800510F5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 58DE7CA42F7758E700510F5C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 58DE7CAB2F7758E700510F5C;
+			remoteInfo = Shunkan;
+		};
+		58DE7D0A2F775AC600510F5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 58DE7CA42F7758E700510F5C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 58DE7D012F775AC600510F5C;
+			remoteInfo = ShunkanShare;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		58DE7D112F775AC600510F5C /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				58DE7D0C2F775AC600510F5C /* ShunkanShare.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		58DE7CAC2F7758E700510F5C /* Shunkan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shunkan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		58DE7CBB2F7758E800510F5C /* ShunkanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShunkanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		58DE7CC52F7758E800510F5C /* ShunkanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShunkanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		58DE7D022F775AC600510F5C /* ShunkanShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShunkanShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		58DE7D0D2F775AC600510F5C /* Exceptions for "ShunkanShare" folder in "ShunkanShare" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 58DE7D012F775AC600510F5C /* ShunkanShare */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		58DE7CAE2F7758E700510F5C /* Shunkan */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Shunkan;
+			sourceTree = "<group>";
+		};
+		58DE7CBE2F7758E800510F5C /* ShunkanTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ShunkanTests;
+			sourceTree = "<group>";
+		};
+		58DE7CC82F7758E800510F5C /* ShunkanUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ShunkanUITests;
+			sourceTree = "<group>";
+		};
+		58DE7D032F775AC600510F5C /* ShunkanShare */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				58DE7D0D2F775AC600510F5C /* Exceptions for "ShunkanShare" folder in "ShunkanShare" target */,
+			);
+			path = ShunkanShare;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		58DE7CA92F7758E700510F5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58DE7CB82F7758E800510F5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58DE7CC22F7758E800510F5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58DE7CFF2F775AC600510F5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		58DE7CA32F7758E700510F5C = {
+			isa = PBXGroup;
+			children = (
+				58DE7CAE2F7758E700510F5C /* Shunkan */,
+				58DE7CBE2F7758E800510F5C /* ShunkanTests */,
+				58DE7CC82F7758E800510F5C /* ShunkanUITests */,
+				58DE7D032F775AC600510F5C /* ShunkanShare */,
+				58DE7CAD2F7758E700510F5C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		58DE7CAD2F7758E700510F5C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				58DE7CAC2F7758E700510F5C /* Shunkan.app */,
+				58DE7CBB2F7758E800510F5C /* ShunkanTests.xctest */,
+				58DE7CC52F7758E800510F5C /* ShunkanUITests.xctest */,
+				58DE7D022F775AC600510F5C /* ShunkanShare.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		58DE7CAB2F7758E700510F5C /* Shunkan */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58DE7CCF2F7758E800510F5C /* Build configuration list for PBXNativeTarget "Shunkan" */;
+			buildPhases = (
+				58DE7CA82F7758E700510F5C /* Sources */,
+				58DE7CA92F7758E700510F5C /* Frameworks */,
+				58DE7CAA2F7758E700510F5C /* Resources */,
+				58DE7D112F775AC600510F5C /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				58DE7D0B2F775AC600510F5C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				58DE7CAE2F7758E700510F5C /* Shunkan */,
+			);
+			name = Shunkan;
+			packageProductDependencies = (
+			);
+			productName = Shunkan;
+			productReference = 58DE7CAC2F7758E700510F5C /* Shunkan.app */;
+			productType = "com.apple.product-type.application";
+		};
+		58DE7CBA2F7758E800510F5C /* ShunkanTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58DE7CD22F7758E800510F5C /* Build configuration list for PBXNativeTarget "ShunkanTests" */;
+			buildPhases = (
+				58DE7CB72F7758E800510F5C /* Sources */,
+				58DE7CB82F7758E800510F5C /* Frameworks */,
+				58DE7CB92F7758E800510F5C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				58DE7CBD2F7758E800510F5C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				58DE7CBE2F7758E800510F5C /* ShunkanTests */,
+			);
+			name = ShunkanTests;
+			packageProductDependencies = (
+			);
+			productName = ShunkanTests;
+			productReference = 58DE7CBB2F7758E800510F5C /* ShunkanTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		58DE7CC42F7758E800510F5C /* ShunkanUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58DE7CD52F7758E800510F5C /* Build configuration list for PBXNativeTarget "ShunkanUITests" */;
+			buildPhases = (
+				58DE7CC12F7758E800510F5C /* Sources */,
+				58DE7CC22F7758E800510F5C /* Frameworks */,
+				58DE7CC32F7758E800510F5C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				58DE7CC72F7758E800510F5C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				58DE7CC82F7758E800510F5C /* ShunkanUITests */,
+			);
+			name = ShunkanUITests;
+			packageProductDependencies = (
+			);
+			productName = ShunkanUITests;
+			productReference = 58DE7CC52F7758E800510F5C /* ShunkanUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		58DE7D012F775AC600510F5C /* ShunkanShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58DE7D0E2F775AC600510F5C /* Build configuration list for PBXNativeTarget "ShunkanShare" */;
+			buildPhases = (
+				58DE7CFE2F775AC600510F5C /* Sources */,
+				58DE7CFF2F775AC600510F5C /* Frameworks */,
+				58DE7D002F775AC600510F5C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				58DE7D032F775AC600510F5C /* ShunkanShare */,
+			);
+			name = ShunkanShare;
+			packageProductDependencies = (
+			);
+			productName = ShunkanShare;
+			productReference = 58DE7D022F775AC600510F5C /* ShunkanShare.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		58DE7CA42F7758E700510F5C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2640;
+				LastUpgradeCheck = 2640;
+				TargetAttributes = {
+					58DE7CAB2F7758E700510F5C = {
+						CreatedOnToolsVersion = 26.4;
+					};
+					58DE7CBA2F7758E800510F5C = {
+						CreatedOnToolsVersion = 26.4;
+						TestTargetID = 58DE7CAB2F7758E700510F5C;
+					};
+					58DE7CC42F7758E800510F5C = {
+						CreatedOnToolsVersion = 26.4;
+						TestTargetID = 58DE7CAB2F7758E700510F5C;
+					};
+					58DE7D012F775AC600510F5C = {
+						CreatedOnToolsVersion = 26.4;
+					};
+				};
+			};
+			buildConfigurationList = 58DE7CA72F7758E700510F5C /* Build configuration list for PBXProject "Shunkan" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 58DE7CA32F7758E700510F5C;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 58DE7CAD2F7758E700510F5C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				58DE7CAB2F7758E700510F5C /* Shunkan */,
+				58DE7CBA2F7758E800510F5C /* ShunkanTests */,
+				58DE7CC42F7758E800510F5C /* ShunkanUITests */,
+				58DE7D012F775AC600510F5C /* ShunkanShare */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		58DE7CAA2F7758E700510F5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58DE7CB92F7758E800510F5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58DE7CC32F7758E800510F5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58DE7D002F775AC600510F5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		58DE7CA82F7758E700510F5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58DE7CB72F7758E800510F5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58DE7CC12F7758E800510F5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58DE7CFE2F775AC600510F5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		58DE7CBD2F7758E800510F5C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 58DE7CAB2F7758E700510F5C /* Shunkan */;
+			targetProxy = 58DE7CBC2F7758E800510F5C /* PBXContainerItemProxy */;
+		};
+		58DE7CC72F7758E800510F5C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 58DE7CAB2F7758E700510F5C /* Shunkan */;
+			targetProxy = 58DE7CC62F7758E800510F5C /* PBXContainerItemProxy */;
+		};
+		58DE7D0B2F775AC600510F5C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 58DE7D012F775AC600510F5C /* ShunkanShare */;
+			targetProxy = 58DE7D0A2F775AC600510F5C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		58DE7CCD2F7758E800510F5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = K83R42K74H;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		58DE7CCE2F7758E800510F5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = K83R42K74H;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		58DE7CD02F7758E800510F5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Shunkan/Shunkan.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K83R42K74H;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xtypo.Shunkan;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		58DE7CD12F7758E800510F5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Shunkan/Shunkan.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K83R42K74H;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xtypo.Shunkan;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		58DE7CD32F7758E800510F5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K83R42K74H;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xtypo.ShunkanTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shunkan.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Shunkan";
+			};
+			name = Debug;
+		};
+		58DE7CD42F7758E800510F5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K83R42K74H;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xtypo.ShunkanTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shunkan.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Shunkan";
+			};
+			name = Release;
+		};
+		58DE7CD62F7758E800510F5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K83R42K74H;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xtypo.ShunkanUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Shunkan;
+			};
+			name = Debug;
+		};
+		58DE7CD72F7758E800510F5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K83R42K74H;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xtypo.ShunkanUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Shunkan;
+			};
+			name = Release;
+		};
+		58DE7D0F2F775AC600510F5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShunkanShare/ShunkanShare.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K83R42K74H;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShunkanShare/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ShunkanShare;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xtypo.Shunkan.ShunkanShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		58DE7D102F775AC600510F5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShunkanShare/ShunkanShare.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K83R42K74H;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShunkanShare/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ShunkanShare;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xtypo.Shunkan.ShunkanShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		58DE7CA72F7758E700510F5C /* Build configuration list for PBXProject "Shunkan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58DE7CCD2F7758E800510F5C /* Debug */,
+				58DE7CCE2F7758E800510F5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58DE7CCF2F7758E800510F5C /* Build configuration list for PBXNativeTarget "Shunkan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58DE7CD02F7758E800510F5C /* Debug */,
+				58DE7CD12F7758E800510F5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58DE7CD22F7758E800510F5C /* Build configuration list for PBXNativeTarget "ShunkanTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58DE7CD32F7758E800510F5C /* Debug */,
+				58DE7CD42F7758E800510F5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58DE7CD52F7758E800510F5C /* Build configuration list for PBXNativeTarget "ShunkanUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58DE7CD62F7758E800510F5C /* Debug */,
+				58DE7CD72F7758E800510F5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58DE7D0E2F775AC600510F5C /* Build configuration list for PBXNativeTarget "ShunkanShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58DE7D0F2F775AC600510F5C /* Debug */,
+				58DE7D102F775AC600510F5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 58DE7CA42F7758E700510F5C /* Project object */;
+}

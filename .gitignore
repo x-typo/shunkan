@@ -1,0 +1,23 @@
+## Xcode user data
+*.xcuserstate
+xcuserdata/
+*.xcuserdatad
+
+## Build
+build/
+DerivedData/
+
+## Swift Package Manager
+.build/
+.swiftpm/
+
+## Misc
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+.DS_Store
+
+## Superpowers
+.superpowers/
