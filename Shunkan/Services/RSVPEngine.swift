@@ -116,8 +116,7 @@ final class RSVPEngine {
 
     var currentPageEstimate: Int {
         guard pageCount > 0 && !words.isEmpty else { return 0 }
-        let wordsPerPage = words.count / pageCount
-        guard wordsPerPage > 0 else { return 1 }
+        let wordsPerPage = max(1, words.count / pageCount)
         return min((currentIndex / wordsPerPage) + 1, pageCount)
     }
 }
