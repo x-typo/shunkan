@@ -30,7 +30,7 @@ Flag violations of these conventions during review.
 
 - Custom error enums conforming to `LocalizedError` (e.g., `PDFParseError`).
 - Error messages must be user-facing and descriptive (what failed, not stack traces).
-- Critical file operations use `try`. Non-critical cleanup uses `try?`.
+- Critical file operations in the main app use `try`. `try?` is acceptable in best-effort contexts like the share extension or non-critical cleanup.
 - Import errors surface via `importError` state shown in alert dialogs.
 
 ## File I/O
