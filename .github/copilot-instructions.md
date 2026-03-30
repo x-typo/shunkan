@@ -13,7 +13,7 @@ Flag violations of these conventions during review.
 ## SwiftData
 
 - All persistent models use `@Model` macro.
-- Relationships use `@Relationship(inverse:)` with explicit inverse declarations.
+- Relationships declare the inverse on the owning side (e.g., `BookCollection.books` uses `@Relationship(inverse: \Book.collections)`). The back-reference side (`Book.collections`) is an unannotated array.
 - Identity via `persistentModelID`. Custom `Hashable` must use this, not value equality.
 - Computed properties for derived values (`progress`, `isComplete`). No stored duplicates.
 - Model container configured once at app entry (`ShunkanApp.swift`).
@@ -23,8 +23,8 @@ Flag violations of these conventions during review.
 - `@MainActor` on services that update UI state (`RSVPEngine`, `ImportService`).
 - `@Observable` stores are MainActor-assumed. Flag missing `@MainActor` annotations.
 - Task lifecycle: `playbackTask?.cancel()` before starting new playback. Flag leaked tasks.
-- `CancellationError` caught separately from other errors in async contexts.
-- Notification Center observers for app lifecycle (foreground detection). Clean up on deinit.
+- New async code should catch `CancellationError` separately from other errors when the distinction matters (e.g., cleanup vs. error reporting).
+- App lifecycle detection uses `scenePhase` + `.onChange` in SwiftUI views and `.onReceive(NotificationCenter.default.publisher(for:))` for cross-view notifications. No manual observer add/remove needed.
 
 ## Error Handling
 
@@ -38,7 +38,7 @@ Flag violations of these conventions during review.
 - Security-scoped URLs: wrap with `startAccessingSecurityScopedResource()` / `stopAccessingSecurityScopedResource()`. Flag missing pairs.
 - Use `FileManager` extensions for consistent path management (`FileManager+Books.swift`).
 - App group container paths for share extension compatibility. Flag hardcoded paths.
-- Atomic file writes (`atomically: true`). Flag non-atomic writes to user data.
+- Text content writes use `atomically: true`. JSON cache writes (e.g., chapters metadata) may use non-atomic `Data.write(to:)` when the data is regenerable.
 
 ## PDF Processing
 
@@ -71,7 +71,7 @@ Flag violations of these conventions during review.
 
 ## Testing
 
-- Swift Testing framework (`@Suite`, `@Test`, `#expect`) for new unit tests.
+- Swift Testing framework (`@Test`, `#expect`) for new unit tests. Use `@Suite` for grouping when multiple related tests exist.
 - XCTest for UI tests (`XCUIApplication`).
 - Priority test targets: `Tokenizer`, `ORPCalculator`, `RSVPEngine` state transitions.
 - Include sample PDF fixtures for import/parsing tests.
